@@ -15,7 +15,7 @@ public class ReflectionsUtils {
 
 	/**
 	 * Returns name ({@link Class#getName()}) of each subtype found in classpath based on given {@code clazz}
-	 * @param clazz
+	 * @param clazz Parent class
 	 * @return List of found class names
 	 */
 	public static List<String> getSubTypesOf(Class<?> clazz) {
@@ -29,12 +29,10 @@ public class ReflectionsUtils {
 
 	/**
 	 * Invokes static method {@code methodName} in class by given {@code className} without parameters.
-	 * @param className
-	 * @param methodName
-	 * @param paramTypes
-	 * @param paramValues
+	 * @param className Class name, e.g. {@code java.lang.Object}
+	 * @param methodName Name of static method to invoke
 	 * @return Result of invoked method 
-	 * @throws Throwable
+	 * @throws Throwable If there is some unexpected problem during execution
 	 */
 	public static Object invokeStaticMethod(String className, String methodName) throws Throwable {
 		return invokeStaticMethod(className, methodName, new Class<?>[] {}, new Object[] {});
@@ -42,12 +40,12 @@ public class ReflectionsUtils {
 
 	/**
 	 * Invokes static method {@code methodName} in class by given {@code className}, {@code paramTypes} and {@code paramValues}.
-	 * @param className
-	 * @param methodName
-	 * @param paramTypes
-	 * @param paramValues
+	 * @param className Class name, e.g. {@code java.lang.Object}
+	 * @param methodName Name of static method to invoke
+	 * @param paramTypes Array containing parameter types
+	 * @param paramValues Array containing parameter values
 	 * @return Result of invoked method 
-	 * @throws Throwable
+	 * @throws Throwable If there is some unexpected problem during execution
 	 */
 	public static Object invokeStaticMethod(String className, String methodName, Class<?>[] paramTypes, Object[] paramValues)
 		throws Throwable {
@@ -58,11 +56,11 @@ public class ReflectionsUtils {
 
 	/**
 	 * Invokes constructor in class by given {@code className}, {@code paramTypes} and {@code paramValues}.
-	 * @param className
-	 * @param paramTypes
-	 * @param paramValues
+	 * @param className Class name, e.g. {@code java.lang.Object}
+	 * @param paramTypes Array containing parameter types
+	 * @param paramValues Array containing parameter values
 	 * @return New class instance
-	 * @throws Throwable
+	 * @throws Throwable If there is some unexpected problem during execution
 	 */
 	public static Object invokeConstructor(String className, Class<?>[] paramTypes, Object[] paramValues) throws Throwable {
 		Class<?> clazz = Class.forName(className);

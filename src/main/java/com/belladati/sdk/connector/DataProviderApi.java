@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public abstract class DataProviderApi<T extends RowsApi<? extends RowApi>> {
 
+	/** Map storing data provider configuration. **/
 	protected final Map<String, PropertyValueApi<?>> properties;
 
 	/**
@@ -22,6 +23,11 @@ public abstract class DataProviderApi<T extends RowsApi<? extends RowApi>> {
 		setProperties(configuration);
 	}
 
+	/**
+	 * Puts given properties to this data provider. Overwrites existing entry with the same {@code key}.
+	 * This method does not delete existing entries that are not available in the given properties.
+	 * @param properties
+	 */
 	private void setProperties(Map<String, PropertyValueApi<?>> properties) {
 		if (properties != null) {
 			for (String key : properties.keySet()) {
@@ -50,7 +56,7 @@ public abstract class DataProviderApi<T extends RowsApi<? extends RowApi>> {
 	/**
 	 * Checks availability of this data provider.
 	 * @return Returns true if data provider is available and ready to provide data. False otherwise.
-	 * @throws Throwable
+	 * @throws Throwable If there is some unexpected problem during execution
 	 */
 	public abstract boolean check() throws Throwable;
 

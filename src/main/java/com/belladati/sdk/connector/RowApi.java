@@ -3,6 +3,7 @@ package com.belladati.sdk.connector;
 /**
  * One source row represented as array of {@link String} values.
  * @author Lubomir Elko
+ * @see RowsApi
  */
 public interface RowApi {
 
@@ -15,6 +16,7 @@ public interface RowApi {
 	/**
 	 * Returns one source value by given index of a column.
 	 * @param columnIndex Index of a column
+	 * @return {@link String} value
 	 */
 	public String getValue(int columnIndex);
 

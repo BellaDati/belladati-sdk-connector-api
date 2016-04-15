@@ -11,6 +11,11 @@ public abstract class PropertyValueApi<T> {
 	protected final boolean required;
 	protected T value;
 
+	/**
+	 * Protected mandatory constructor.
+	 * @param defaultValue Default value or {@code null}
+	 * @param required Flag if this property will be required
+	 */
 	protected PropertyValueApi(T defaultValue, boolean required) {
 		this.defaultValue = defaultValue;
 		this.required = required;
@@ -80,10 +85,19 @@ public abstract class PropertyValueApi<T> {
 	 */
 	public final static class IntegerValue extends PropertyValueApi<Integer> {
 
+		/**
+		 * Creates property value storing {@link Integer} value. Property value will be without default value
+		 * and not required.
+		 */
 		public IntegerValue() {
 			this(null, false);
 		}
 
+		/**
+		 * Creates property value storing {@link Integer} value with given {@code defaultValue} and {@code required}.
+		 * @param defaultValue Default value or {@code null}
+		 * @param required Flag if this property will be required
+		 */
 		public IntegerValue(Integer defaultValue, boolean required) {
 			super(defaultValue, required);
 		}
@@ -102,10 +116,19 @@ public abstract class PropertyValueApi<T> {
 	 */
 	public final static class StringValue extends PropertyValueApi<String> {
 
+		/**
+		 * Creates property value storing {@link String} value. Property value will be without default value
+		 * and not required.
+		 */
 		public StringValue() {
 			this(null, false);
 		}
 
+		/**
+		 * Creates property value storing {@link String} value with given {@code defaultValue} and {@code required}.
+		 * @param defaultValue Default value or {@code null}
+		 * @param required Flag if this property will be required
+		 */
 		public StringValue(String defaultValue, boolean required) {
 			super(defaultValue, required);
 		}
@@ -124,10 +147,19 @@ public abstract class PropertyValueApi<T> {
 	 */
 	public final static class BooleanValue extends PropertyValueApi<Boolean> {
 
+		/**
+		 * Creates property value storing {@link Boolean} value. Property value will be without default value
+		 * and not required.
+		 */
 		public BooleanValue() {
 			this(null, false);
 		}
 
+		/**
+		 * Creates property value storing {@link Boolean} value with given {@code defaultValue} and {@code required}.
+		 * @param defaultValue Default value or {@code null}
+		 * @param required Flag if this property will be required
+		 */
 		public BooleanValue(Boolean defaultValue, boolean required) {
 			super(defaultValue, required);
 		}
