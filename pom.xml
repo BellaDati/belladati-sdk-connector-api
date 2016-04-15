@@ -11,6 +11,12 @@
     <url>http://www.belladati.com</url>
     <description>The BellaDati SDK Connector API allows creating custom data providers for BellaDati BI solution.</description>
 
+    <scm>
+        <url>git@github.com:BellaDati/belladati-sdk-connector-api.git</url>
+        <connection>scm:git:git@github.com:BellaDati/belladati-sdk-connector-api.git</connection>
+        <developerConnection>scm:git:git@github.com:BellaDati/belladati-sdk-connector-api.git</developerConnection>
+    </scm>
+
     <developers>
         <developer>
             <id>lmicko</id>
