@@ -116,6 +116,9 @@ public abstract class PropertyValueApi<T> {
 	 */
 	public final static class StringValue extends PropertyValueApi<String> {
 
+		/** Flag if this property stores password **/
+		private final boolean password;
+
 		/**
 		 * Creates property value storing {@link String} value. Property value will be without default value
 		 * and not required.
@@ -130,12 +133,31 @@ public abstract class PropertyValueApi<T> {
 		 * @param required Flag if this property will be required
 		 */
 		public StringValue(String defaultValue, boolean required) {
+			this(defaultValue, required, false);
+		}
+
+		/**
+		 * Creates property value storing {@link String} value with given {@code defaultValue} and {@code required}.
+		 * @param defaultValue Default value or {@code null}
+		 * @param required Flag if this property will be required
+		 * @param password Flag if this property stores password
+		 */
+		public StringValue(String defaultValue, boolean required, boolean password) {
 			super(defaultValue, required);
+			this.password = password;
 		}
 
 		@Override
 		public String getValueOrDefaultAsString() {
 			return getValueOrDefault() == null ? "" : getValueOrDefault();
+		}
+
+		/**
+		 * Returns flag if this property stores password or not.
+		 * @return {@code true} if this property stores password, {@code false} otherwise.
+		 */
+		public final boolean isPassword() {
+			return password;
 		}
 
 	}
