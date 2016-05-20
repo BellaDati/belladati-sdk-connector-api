@@ -4,7 +4,7 @@
 
     <groupId>com.belladati</groupId>
     <artifactId>sdk-connector-api</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.0.6</version>
     <packaging>jar</packaging>
 
     <name>BellaDati SDK Connector API</name>
@@ -40,14 +40,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
-        <reflections.version>0.9.10</reflections.version>
+        <classpath-scanner.version>1.9.18</classpath-scanner.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>${reflections.version}</version>
+            <groupId>io.github.lukehutch</groupId>
+            <artifactId>fast-classpath-scanner</artifactId>
+            <version>${classpath-scanner.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

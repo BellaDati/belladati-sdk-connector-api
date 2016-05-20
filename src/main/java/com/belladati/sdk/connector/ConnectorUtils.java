@@ -2,15 +2,14 @@ package com.belladati.sdk.connector;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import org.reflections.Reflections;
 
 import com.belladati.sdk.connector.PropertyValueApi.BooleanValue;
 import com.belladati.sdk.connector.PropertyValueApi.IntegerValue;
 import com.belladati.sdk.connector.PropertyValueApi.StringValue;
+
+import io.github.lukehutch.fastclasspathscanner.FastClasspathScanner;
 
 /**
  * Utilities for custom connector.
@@ -24,12 +23,7 @@ public class ConnectorUtils {
 	 * @return List of found class names
 	 */
 	public static List<String> getSubTypesOf(Class<?> clazz) {
-		Reflections reflections = new Reflections("com.belladati");
-		List<String> subTypes = new ArrayList<String>();
-		for (Class<?> subTypeClass : reflections.getSubTypesOf(clazz)) {
-			subTypes.add(subTypeClass.getName());
-		}
-		return subTypes;
+		return new FastClasspathScanner("com.belladati.sdk.connector").scan().getNamesOfSubclassesOf(clazz);
 	}
 
 	/**
