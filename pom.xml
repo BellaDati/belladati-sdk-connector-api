@@ -4,7 +4,7 @@
 
     <groupId>com.belladati</groupId>
     <artifactId>sdk-connector-api</artifactId>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>BellaDati SDK Connector API</name>
@@ -28,6 +28,11 @@
             <name>Lubomir Elko</name>
             <email>lubomir.elko@belladati.com</email>
         </developer>
+        <developer>
+            <id>support</id>
+            <name>BellaDati Support</name>
+            <email>support@belladati.com</email>
+        </developer>
     </developers>
 
     <licenses>
@@ -39,8 +44,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.7</java.version>
-        <classpath-scanner.version>1.9.18</classpath-scanner.version>
+        <java.version>1.8</java.version>
+        <classpath-scanner.version>3.1.15</classpath-scanner.version>
     </properties>
 
     <dependencies>
@@ -50,6 +55,18 @@
             <version>${classpath-scanner.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+			<scope>provided</scope>
+		</dependency>
     </dependencies>
 
     <build>
@@ -66,7 +83,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -84,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -97,7 +114,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
