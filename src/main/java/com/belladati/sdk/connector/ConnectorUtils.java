@@ -2,6 +2,7 @@ package com.belladati.sdk.connector;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,8 @@ import com.belladati.sdk.connector.PropertyValueApi.BooleanValue;
 import com.belladati.sdk.connector.PropertyValueApi.IntegerValue;
 import com.belladati.sdk.connector.PropertyValueApi.StringValue;
 
-import io.github.lukehutch.fastclasspathscanner.FastClasspathScanner;
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ClassInfo;
 
 /**
  * Utilities for custom connector.
@@ -23,7 +25,15 @@ public class ConnectorUtils {
 	 * @return List of found class names
 	 */
 	public static List<String> getSubTypesOf(Class<?> clazz) {
-		return new FastClasspathScanner("com.belladati.sdk.connector").scan().getNamesOfSubclassesOf(clazz);
+		List<String> list = new ArrayList<>();
+		for (ClassInfo ci : new ClassGraph().whitelistPackages("com.belladati.sdk.connector").scan()
+			.getSubclasses(clazz.getName())) {
+			if (!ci.isAbstract() && !ci.isInterface()) {
+				list.add(ci.getName());
+			}
+		}
+		return list;
+		//return new FastClasspathScanner("com.belladati.sdk.connector").scan().getNamesOfSubclassesOf(clazz);
 	}
 
 	/**
