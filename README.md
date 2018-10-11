@@ -6,7 +6,7 @@ Related repository is [belladati-sdk-connector-example](https://github.com/Bella
 
 ## Build Instructions
 
-A Java 7 JDK and [Apache Maven](http://maven.apache.org/) are required to build the BellaDati SDK Connector. Maven is included in most Eclipse for Java distributions.
+A Java 8 JDK and [Apache Maven](http://maven.apache.org/) are required to build the BellaDati SDK Connector. Maven is included in most Eclipse for Java distributions.
 
 To prepare building the SDK, clone [this repository](https://github.com/BellaDati/belladati-sdk-connector-api).
 
